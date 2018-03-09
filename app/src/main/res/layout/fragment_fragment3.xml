@@ -1,0 +1,65 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.maximus.grizzfit.Fragment3">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/labelDirections"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="17dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="20dp"
+            android:text="To set a goal select goal type and fill in the informtion."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/labelGoalType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/labelDirections"
+            android:layout_alignStart="@+id/labelDirections"
+            android:layout_below="@+id/labelDirections"
+            android:layout_marginTop="38dp"
+            android:text="GoalType"
+            android:textSize="18sp" />
+
+        <ToggleButton
+            android:id="@+id/tgbtnGoalExercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/labelGoalType"
+            android:layout_marginLeft="37dp"
+            android:layout_marginStart="37dp"
+            android:layout_toEndOf="@+id/labelGoalType"
+            android:layout_toRightOf="@+id/labelGoalType"
+            android:textOff="Exercise"
+            android:textOn="Exercise" />
+
+        <ToggleButton
+            android:id="@+id/tgbtnGoalWeightLoss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tgbtnGoalExercise"
+            android:layout_alignBottom="@+id/tgbtnGoalExercise"
+            android:layout_marginLeft="47dp"
+            android:layout_marginStart="47dp"
+            android:layout_toEndOf="@+id/tgbtnGoalExercise"
+            android:layout_toRightOf="@+id/tgbtnGoalExercise"
+            android:text="ToggleButton"
+            android:textOff="Weight Loss"
+            android:textOn="Weight Loss" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

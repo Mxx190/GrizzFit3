@@ -1,0 +1,128 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.maximus.grizzfit.Fragment2">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/labelDirections"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="21dp"
+            android:text="Enter your body information."
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/labelGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/labelDirections"
+            android:layout_alignStart="@+id/labelDirections"
+            android:layout_below="@+id/labelDirections"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="41dp"
+            android:text="Gender:"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/fieldGenderInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/labelGender"
+            android:layout_alignBottom="@+id/labelGender"
+            android:layout_alignLeft="@+id/fieldWeight"
+            android:layout_alignStart="@+id/fieldWeight"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/labelWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/labelGender"
+            android:layout_alignStart="@+id/labelGender"
+            android:layout_below="@+id/fieldGenderInput"
+            android:layout_marginTop="32dp"
+            android:text="Weight: (lb)"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/fieldWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/labelWeight"
+            android:layout_alignBottom="@+id/labelWeight"
+            android:layout_alignLeft="@+id/fieldHeight"
+            android:layout_alignStart="@+id/fieldHeight"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/labelHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/labelWeight"
+            android:layout_alignStart="@+id/labelWeight"
+            android:layout_below="@+id/fieldWeight"
+            android:layout_marginTop="33dp"
+            android:text="Height: (In)"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/fieldHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/labelHeight"
+            android:layout_alignBottom="@+id/labelHeight"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:layout_toEndOf="@+id/labelHeight"
+            android:layout_toRightOf="@+id/labelHeight"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/labelAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/labelHeight"
+            android:layout_alignStart="@+id/labelHeight"
+            android:layout_centerVertical="true"
+            android:text="Age:"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/fieldAge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/labelAge"
+            android:layout_alignEnd="@+id/fieldHeight"
+            android:layout_alignRight="@+id/fieldHeight"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fieldAge"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="92dp"
+            android:text="Submit" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>
