@@ -117,6 +117,20 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fram, fragment, "Fragment4");
             fragmentTransaction.commit();
 
+        }  else if (id == R.id.nav_log) {
+            setTitle("Enter Log");
+            FragmentLog fragment = new FragmentLog();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fram, fragment, "FragmentLog");
+            fragmentTransaction.commit();
+        }
+
+        else if (id == R.id.nav_view) {
+            setTitle("View Log");
+            Fragment_ViewLog fragment = new Fragment_ViewLog();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fram, fragment, "Fragment_ViewLog");
+            fragmentTransaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
