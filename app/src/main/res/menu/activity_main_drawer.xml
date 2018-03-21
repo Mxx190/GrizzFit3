@@ -23,6 +23,9 @@
         <item
             android:id="@+id/nav_view"
             android:title="View Log" />
+        <item
+            android:id="@+id/nav_food"
+            android:title="Create Food" />
     </group>
 
 

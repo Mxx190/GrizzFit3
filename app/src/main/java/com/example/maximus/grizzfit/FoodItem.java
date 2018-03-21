@@ -6,12 +6,22 @@ package com.example.maximus.grizzfit;
 
 public class FoodItem {
     private String foodName;
-    private double calories;
-    private double fat;
-    private double cholesterol;
-    private double sodium;
-    private double carbs;
-    private double protein;
+    private int calories;
+    private int fat;
+    private int cholesterol;
+    private int sodium;
+    private int carbs;
+    private int protein;
+
+    public FoodItem(String foodName, int calories, int fat, int cholesterol, int sodium, int carbs, int protein) {
+        setFoodName(foodName);
+        setCalories(calories);
+        setFat(fat);
+        setCholesterol(cholesterol);
+        setSodium(sodium);
+        setCarbs(carbs);
+        setProtein(protein);
+    }
 
     public String getFoodName() {
         return foodName;
@@ -21,51 +31,64 @@ public class FoodItem {
         this.foodName = foodName;
     }
 
-    public double getFat() {
+    public int getFat() {
         return fat;
     }
 
-    public void setFat(double fat) {
+    public void setFat(int fat) {
         this.fat = fat;
     }
 
-    public double getCholesterol() {
+    public int getCholesterol() {
         return cholesterol;
     }
 
-    public void setCholesterol(double cholesterol) {
+    public void setCholesterol(int cholesterol) {
         this.cholesterol = cholesterol;
     }
 
-    public double getSodium() {
+    public int getSodium() {
         return sodium;
     }
 
-    public void setSodium(double sodium) {
+    public void setSodium(int sodium) {
         this.sodium = sodium;
     }
 
-    public double getCarbs() {
+    public int getCarbs() {
         return carbs;
     }
 
-    public void setCarbs(double carbs) {
+    public void setCarbs(int carbs) {
         this.carbs = carbs;
     }
 
-    public double getProtein() {
+    public int getProtein() {
         return protein;
     }
 
-    public void setProtein(double protein) {
+    public void setProtein(int protein) {
         this.protein = protein;
     }
 
-    public double getCalories() {
+    public int getCalories() {
         return calories;
     }
 
-    public void setCalories(double calories) {
+    public void setCalories(int calories) {
         this.calories = calories;
+    }
+
+    @Override
+    public String toString() {
+        return "FoodItem{" +
+                "foodName='" + foodName + '\'' +
+                ", calories=" + calories +
+                ", fat=" + fat +
+                ", cholesterol=" + cholesterol +
+                ", sodium=" + sodium +
+                ", carbs=" + carbs +
+                ", protein=" + protein +
+                '}';
     }
 }
