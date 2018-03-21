@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.maximus.grizzfit.Current_Goals">
+
+    <!-- TODO: Update blank fragment layout -->
+
+
+    <TextView
+        android:id="@+id/textViewGoalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Goal Type"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textViewCountDownTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView4title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:text="00:00:00"
+        android:textColor="@android:color/black"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/endGoalButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewGoalTitle"
+        android:layout_alignStart="@+id/textViewGoalTitle"
+        android:layout_below="@+id/textViewCountDownTimer"
+        android:layout_marginTop="57dp"
+        android:text="End Goal"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView4title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewGoalTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="Amount of time to complete goal"
+        android:textSize="24sp" />
+
+</RelativeLayout>

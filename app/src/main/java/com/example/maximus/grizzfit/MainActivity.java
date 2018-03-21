@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         setTitle("BMI Calculator");
-        Fragment1 fragment = new Fragment1();
+        BMI fragment = new BMI();
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fram, fragment, "Fragment1");
+        fragmentTransaction.replace(R.id.fram, fragment, "BMI");
         fragmentTransaction.commit();
 
 
@@ -91,30 +91,37 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_bmi) {
             setTitle("BMI Calculator");
-            Fragment1 fragment = new Fragment1();
+            BMI fragment = new BMI();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Fragment1");
+            fragmentTransaction.replace(R.id.fram, fragment, "BMI");
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_f2) {
             setTitle("Body Info");
-            Fragment2 fragment = new Fragment2();
+            Enter_Body_Info fragment = new Enter_Body_Info();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Fragment2");
+            fragmentTransaction.replace(R.id.fram, fragment, "Enter_Body_Info");
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_f3) {
             setTitle("Set Goal");
-            Fragment3 fragment = new Fragment3();
+            Set_Goal_Controller fragment = new Set_Goal_Controller();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Fragment3");
+            fragmentTransaction.replace(R.id.fram, fragment, "Set_Goal_Controller");
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_f4) {
-            setTitle("Send FeedBack");
-            Fragment4 fragment = new Fragment4();
+            setTitle("Step Counter");
+            Steps_Counter fragment = new Steps_Counter();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Fragment4");
+            fragmentTransaction.replace(R.id.fram, fragment, "Step Counter");
+            fragmentTransaction.commit();
+
+        }else if (id == R.id.nav_f5) {
+            setTitle("Current Goals");
+            Current_Goals fragment = new Current_Goals();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fram, fragment, "Current Goals");
             fragmentTransaction.commit();
 
         }  else if (id == R.id.nav_log) {
