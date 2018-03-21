@@ -15,7 +15,10 @@
             android:title="Set Goal" />
         <item
             android:id="@+id/nav_f4"
-            android:title="Send Feedback" />
+            android:title="Step Counter" />
+        <item
+            android:id="@+id/nav_f5"
+            android:title="Current Goals" />
     </group>
 
 

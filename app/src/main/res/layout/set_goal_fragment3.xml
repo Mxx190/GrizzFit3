@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.maximus.grizzfit.Fragment3">
+    tools:context="com.example.maximus.grizzfit.Set_Goal_Controller">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -37,13 +37,14 @@
             android:id="@+id/tgbtnGoalExercise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/labelGoalType"
-            android:layout_marginLeft="37dp"
-            android:layout_marginStart="37dp"
+            android:layout_alignBaseline="@+id/labelGoalType"
+            android:layout_alignBottom="@+id/labelGoalType"
+            android:layout_marginLeft="17dp"
+            android:layout_marginStart="17dp"
             android:layout_toEndOf="@+id/labelGoalType"
             android:layout_toRightOf="@+id/labelGoalType"
-            android:textOff="Exercise"
-            android:textOn="Exercise" />
+            android:textOff="Step Goal"
+            android:textOn="Step Goal" />
 
         <ToggleButton
             android:id="@+id/tgbtnGoalWeightLoss"
@@ -56,8 +57,40 @@
             android:layout_toEndOf="@+id/tgbtnGoalExercise"
             android:layout_toRightOf="@+id/tgbtnGoalExercise"
             android:text="ToggleButton"
-            android:textOff="Weight Loss"
-            android:textOn="Weight Loss" />
+            android:textOff="Calorie Burned"
+            android:textOn="Calorie Burned" />
+
+        <EditText
+            android:id="@+id/editTextGoal1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/labelGoalType"
+            android:layout_alignStart="@+id/labelGoalType"
+            android:layout_below="@+id/tgbtnGoalWeightLoss"
+            android:layout_marginLeft="45dp"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="43dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/editTextGoal2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/editTextGoal1"
+            android:layout_alignRight="@+id/editTextGoal1"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/buttonGoalSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextGoal2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="115dp"
+            android:text="Submit" />
 
     </RelativeLayout>
 

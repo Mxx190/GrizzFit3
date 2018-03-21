@@ -15,11 +15,11 @@ import android.widget.Toast;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Fragment1 extends Fragment {
+public class BMI extends Fragment {
 
     View currentView;
 
-    public Fragment1() {
+    public BMI() {
         // Required empty public constructor
     }
 
@@ -27,7 +27,7 @@ public class Fragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        currentView = inflater.inflate(R.layout.fragment_fragment1, container, false);
+        currentView = inflater.inflate(R.layout.bmi_fragment1, container, false);
 
         //Aligning xml elements with the java elements
         Button btnCalculate =  currentView.findViewById(R.id.btnCalculateBMI);
