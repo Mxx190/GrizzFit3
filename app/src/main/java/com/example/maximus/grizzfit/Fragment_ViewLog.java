@@ -1,5 +1,6 @@
 package com.example.maximus.grizzfit;
 
+import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -52,6 +53,9 @@ public class Fragment_ViewLog extends Fragment {
         String string = logs.getString("logs", null);
 
         labelLogs.setText(string);
+
+        logDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(),
+                logDatabase.class, "log-data").build();
 
 
         return currentView;

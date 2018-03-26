@@ -1,5 +1,6 @@
 package com.example.maximus.grizzfit;
 
+import android.arch.persistence.room.Room;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -148,6 +149,9 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
         }
 
+
+        logDatabase db = Room.databaseBuilder(getApplicationContext(),
+                logDatabase.class, "log-data").build();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
