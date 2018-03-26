@@ -1,27 +1,21 @@
 package com.example.maximus.grizzfit;
 
 import android.arch.persistence.room.Room;
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Set;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_ViewLog extends Fragment {
+
 
     View currentView;
     public Fragment_ViewLog() {
@@ -54,8 +48,9 @@ public class Fragment_ViewLog extends Fragment {
 
         labelLogs.setText(string);
 
-        logDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(),
-                logDatabase.class, "log-data").build();
+        LogDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(),
+                LogDatabase.class, "log-data").build();
+        
 
 
         return currentView;

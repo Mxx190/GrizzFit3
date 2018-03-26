@@ -150,8 +150,8 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        logDatabase db = Room.databaseBuilder(getApplicationContext(),
-                logDatabase.class, "log-data").build();
+        LogDatabase db = Room.databaseBuilder(getApplicationContext(),
+                LogDatabase.class, "log-data").build();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

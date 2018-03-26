@@ -13,7 +13,7 @@ import java.util.Date;
 @Entity
 public class FoodLog {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     private int foodID;
     @ColumnInfo(name = "food_name")
     private String mFoodName;
