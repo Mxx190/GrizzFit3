@@ -48,11 +48,6 @@ public class Fragment_ViewLog extends Fragment {
 
         labelLogs.setText(string);
 
-        LogDatabase db = Room.databaseBuilder(getActivity().getApplicationContext(),
-                LogDatabase.class, "log-data").build();
-        
-
-
         return currentView;
     }
 

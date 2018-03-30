@@ -22,4 +22,7 @@ public interface LogDao {
 
     @Delete
     void delete(FoodLog log);
+
+    @Query("DELETE FROM FoodLog")
+    public void deleteItAll();
 }
