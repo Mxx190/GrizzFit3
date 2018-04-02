@@ -41,10 +41,10 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        setTitle("BMI Calculator");
-        BMI fragment = new BMI();
+        setTitle("Home");
+        Home fragment = new Home();
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fram, fragment, "BMI");
+        fragmentTransaction.replace(R.id.fram, fragment, "Home");
         fragmentTransaction.commit();
 
 
@@ -89,7 +89,14 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_bmi) {
+        if (id == R.id.nav_home) {
+            setTitle("Home");
+            Home fragment = new Home();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fram, fragment, "Home");
+            fragmentTransaction.commit();
+
+        } else if (id == R.id.nav_bmi) {
             setTitle("BMI Calculator");
             BMI fragment = new BMI();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -117,11 +124,11 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fram, fragment, "Step Counter");
             fragmentTransaction.commit();
 
-        }else if (id == R.id.nav_f5) {
-            setTitle("Current Goals");
-            Current_Goals fragment = new Current_Goals();
+        } else if (id == R.id.nav_f5) {
+            setTitle("Send Feedback");
+            Send_Feedback fragment = new Send_Feedback();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Current Goals");
+            fragmentTransaction.replace(R.id.fram, fragment, "Send Feedback");
             fragmentTransaction.commit();
 
         }  else if (id == R.id.nav_log) {
