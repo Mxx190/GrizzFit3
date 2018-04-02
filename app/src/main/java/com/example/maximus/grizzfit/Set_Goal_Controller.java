@@ -26,8 +26,6 @@ public class Set_Goal_Controller extends Fragment {
     private int numberOfDays;
     private int numberOfCalories;
 
-    private TextView countDownTxtView;
-
     private static long START_TIME_IN_MILLIS = 600000;
 
     private Button submitStart;
@@ -38,11 +36,16 @@ public class Set_Goal_Controller extends Fragment {
 
     private long TimeLeftInMillis = START_TIME_IN_MILLIS;
 
-
-
-    public Set_Goal_Controller() {
-        // Required empty public constructor
-    }
+    private TextView goalTimer;
+    private ToggleButton exerciseTgbtn;
+    private ToggleButton weightLossTgbtn;
+    private EditText goaledittxt1;
+    private EditText goaledittxt2;
+    private Button buttonSubmit;
+    private TextView goalTitle;
+    private TextView directions;
+    private TextView goalType;
+    private Button endGoalButton;
 
 
     @Override
@@ -51,16 +54,24 @@ public class Set_Goal_Controller extends Fragment {
         // Inflate the layout for this fragment
         currentView = inflater.inflate(R.layout.set_goal_fragment3, container, false);
 
-        final ToggleButton exerciseTgbtn = currentView.findViewById(R.id.tgbtnGoalExercise);
-        final ToggleButton weightLossTgbtn = currentView.findViewById(R.id.tgbtnGoalWeightLoss);
-        final EditText goaledittxt1 = currentView.findViewById(R.id.editTextGoal1);
-        final EditText goaledittxt2 = currentView.findViewById(R.id.editTextGoal2);
-        final Button buttonSubmit = currentView.findViewById(R.id.buttonGoalSubmit);
-        final TextView countDownTxtView = currentView.findViewById(R.id.textViewCountDownTimer);
+        exerciseTgbtn = currentView.findViewById(R.id.tgbtnGoalExercise);
+        weightLossTgbtn = currentView.findViewById(R.id.tgbtnGoalWeightLoss);
+        goaledittxt1 = currentView.findViewById(R.id.editTextGoal1);
+        goaledittxt2 = currentView.findViewById(R.id.editTextGoal2);
+        buttonSubmit = currentView.findViewById(R.id.buttonGoalSubmit);
+        goalTitle = currentView.findViewById(R.id.GoalTitle);
+        goalTimer = currentView.findViewById(R.id.timerTV);
+        directions = currentView.findViewById(R.id.labelDirections);
+        goalType = currentView.findViewById(R.id.labelGoalType);
+        
+
+
 
 
         goaledittxt1.setVisibility(View.INVISIBLE);
         goaledittxt2.setVisibility(View.INVISIBLE);
+        goalTitle.setVisibility(View.INVISIBLE);
+        goalTimer.setVisibility(View.INVISIBLE);
 
 
 
@@ -143,9 +154,6 @@ public class Set_Goal_Controller extends Fragment {
             @Override
             public void onClick(View view) {
 
-
-
-
                 if (exerciseTgbtn.isChecked()){
 
                     numberOfSteps = Integer.parseInt(goaledittxt1.getText().toString());
@@ -159,16 +167,19 @@ public class Set_Goal_Controller extends Fragment {
 
                 numberOfDays = Integer.parseInt(goaledittxt2.getText().toString());
 
+
+                exerciseTgbtn.setVisibility(View.INVISIBLE);
+                weightLossTgbtn.setVisibility(View.INVISIBLE);
+                goaledittxt1.setVisibility(View.INVISIBLE);
+                goaledittxt2.setVisibility(View.INVISIBLE);
+                buttonSubmit.setVisibility(View.INVISIBLE);
+                goalType.setVisibility(View.INVISIBLE);
+                directions.setVisibility(View.INVISIBLE);
+
                 startTimer();
+                goalTitle.setVisibility(View.VISIBLE);
+                goalTimer.setVisibility(View.VISIBLE);
 
-                System.out.println(numberOfCalories);
-                System.out.println(numberOfDays);
-                System.out.println(numberOfSteps);
-
-
-
-
-                //countDownTxtView.setText(timer.updateCountDownText());
 
 
             }
@@ -219,11 +230,11 @@ public class Set_Goal_Controller extends Fragment {
 
         String timeLeftFormatted = String .format(Locale.getDefault(),"%02d:%02d", minutes, seconds);
 
-        System.out.println(timeLeftFormatted);
+        goalTimer.setText(timeLeftFormatted);
 
 
 
-        //countDownTxtView.setText(timeLeftFormatted);
+
 
 
 

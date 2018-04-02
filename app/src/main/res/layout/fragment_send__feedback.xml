@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.maximus.grizzfit.Send_Feedback">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <EditText
+        android:id="@+id/emailIDEditTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/subjectEditTxt"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/subjectEditTxt"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="EmailID"
+        android:hint="Emailid"/>
+
+    <EditText
+        android:id="@+id/subjectEditTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/messageEditTxt"
+        android:layout_alignStart="@+id/messageEditTxt"
+        android:layout_below="@+id/emailIDEditTxt"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Subject" />
+
+    <EditText
+        android:id="@+id/messageEditTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/subjectEditTxt"
+        android:layout_marginLeft="48dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="51dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Message" />
+
+    <Button
+        android:id="@+id/sendEmailBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/messageEditTxt"
+        android:layout_alignRight="@+id/messageEditTxt"
+        android:layout_below="@+id/messageEditTxt"
+        android:layout_marginEnd="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="75dp"
+        android:text="Send" />
+</RelativeLayout>

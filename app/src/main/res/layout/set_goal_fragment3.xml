@@ -87,10 +87,39 @@
             android:id="@+id/buttonGoalSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="51dp"
+            android:text="Submit" />
+
+        <Button
+            android:id="@+id/doneGoalbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonGoalSubmit"
+            android:layout_alignEnd="@+id/timerTV"
+            android:layout_alignRight="@+id/timerTV"
+            android:layout_marginBottom="23dp"
+            android:text="End Goal" />
+
+        <TextView
+            android:id="@+id/timerTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/editTextGoal2"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="115dp"
-            android:text="Submit" />
+            android:layout_marginTop="38dp"
+            android:text="00:00:00"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/GoalTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/editTextGoal2"
+            android:layout_centerHorizontal="true"
+            android:text="Goal"
+            android:textSize="24sp" />
 
     </RelativeLayout>
 
