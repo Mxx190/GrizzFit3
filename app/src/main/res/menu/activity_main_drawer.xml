@@ -5,6 +5,9 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_home"
+            android:title="Home" />
+        <item
             android:id="@+id/nav_bmi"
             android:title="BMI Calc" />
         <item
@@ -18,7 +21,7 @@
             android:title="Step Counter" />
       <item
             android:id="@+id/nav_f5"
-            android:title="Current Goals" />
+            android:title="Send Feedback" />
         <item
             android:id="@+id/nav_log"
             android:title="Enter Log" />
