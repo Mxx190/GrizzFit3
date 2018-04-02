@@ -147,6 +147,14 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fram, fragment, "AddFoodItem");
             fragmentTransaction.commit();
         }
+        else if (id == R.id.nav_tips)
+        {
+            setTitle("Diet Tips");
+            Diet_Tips fragment = new Diet_Tips();
+            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fram, fragment, "Diet Tips");
+            fragmentTransaction.commit();
+        }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

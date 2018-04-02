@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <RelativeLayout
+        android:id="@+id/tipLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:layout_editor_absoluteX="104dp"
+        tools:layout_editor_absoluteY="129dp">
+
+        <Button
+            android:id="@+id/nextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tipLabel"
+            android:layout_centerHorizontal="true"
+            android:text="Next Tip"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="428dp" />
+
+        <TextView
+            android:id="@+id/tipLabel"
+            android:layout_width="317dp"
+            android:layout_height="311dp"
+            android:layout_below="@+id/titleLabel"
+            android:layout_centerHorizontal="true"
+            android:text="Tip"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="96dp" />
+
+        <TextView
+            android:id="@+id/titleLabel"
+            android:layout_width="285dp"
+            android:layout_height="64dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:text="Diet Tips"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+            android:visibility="visible"
+            tools:layout_editor_absoluteX="50dp"
+            tools:layout_editor_absoluteY="16dp"
+            tools:text="Diet Tips" />
+    </RelativeLayout>
+
+</RelativeLayout>
