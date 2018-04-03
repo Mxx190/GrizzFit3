@@ -69,5 +69,3 @@ public class BMI extends Fragment {
     }
 
 }
-
-
