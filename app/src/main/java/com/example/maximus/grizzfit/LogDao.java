@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by Zach on 3/25/2018.
+ * Hsndles Database queries
  */
 
 @Dao
@@ -17,6 +18,9 @@ public interface LogDao {
 
     @Query("SELECT * FROM FoodLog")
     LiveData<List<FoodLog>> getAll();
+
+    @Query("SELECT * FROM FoodLog")
+    List<FoodLog> getAllNotLive();
 
     @Insert
     void insertAll(FoodLog log);

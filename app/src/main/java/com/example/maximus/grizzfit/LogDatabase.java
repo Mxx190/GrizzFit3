@@ -7,6 +7,7 @@ import android.content.Context;
 
 /**
  * Created by Zach on 3/25/2018.
+ * The database itself. Gives out instance of itself since database builds are expensive
  */
 
 @Database(entities = {FoodLog.class}, version = 1, exportSchema = false)

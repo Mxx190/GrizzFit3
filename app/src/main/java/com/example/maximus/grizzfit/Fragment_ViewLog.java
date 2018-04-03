@@ -1,12 +1,12 @@
 package com.example.maximus.grizzfit;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
-import android.arch.lifecycle.ViewModel;
-import android.arch.lifecycle.ViewModelProviders;
 import android.arch.persistence.room.Room;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -32,27 +32,23 @@ public class Fragment_ViewLog extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+            Bundle savedInstanceState) {
+
+        currentView = inflater.inflate(R.layout.fragment_fragment__view_log, container, false);
+        final LogDatabase db = LogDatabase.getLogDatabase(this.getActivity().getApplicationContext());
+        List<FoodLog> list = db.logDao().getAllNotLive();
 
         // Inflate the layout for this fragment
-        currentView = inflater.inflate(R.layout.fragment_fragment__view_log, container, false);
-        //Set up recycle view and attach adapter to it
+
+        //Set up recycle view and adapter
         RecyclerView recyclerView = currentView.findViewById(R.id.recyclerView);
+        final LogRecyclerViewAdapter logAdapter = new LogRecyclerViewAdapter(new ArrayList<FoodLog>());
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity().getApplicationContext()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getActivity().getApplicationContext(), DividerItemDecoration.VERTICAL));
 
-        LogRecyclerViewAdapter logAdapter = new LogRecyclerViewAdapter(new ArrayList<FoodLog>());
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //Adds the database content to adapter, then attaches it to the view
+        logAdapter.addItems(list);
         recyclerView.setAdapter(logAdapter);
-
-        //Get view model
-        ViewModel viewModel = ViewModelProviders.of(this).get(LogViewModel.class);
-        //viewModel.getLogList().observe(Fragment_ViewLog.this, new Observer<List<FoodLog>>);
-
-
-
-
-        final FoodLog logArray[];
-        final ListView logListView;
-        final TextView labelLogs;
 
         return currentView;
     }

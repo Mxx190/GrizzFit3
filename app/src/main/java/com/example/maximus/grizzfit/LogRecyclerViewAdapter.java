@@ -8,14 +8,14 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import static java.lang.String.valueOf;
+
 public class LogRecyclerViewAdapter extends RecyclerView.Adapter<LogRecyclerViewAdapter.RecyclerViewHolder> {
     private List<FoodLog> logList;
-    private View.OnLongClickListener longClickListener;
 
     public LogRecyclerViewAdapter(List<FoodLog> logList) {
 
         this.logList = logList;
-        //this.longClickListener = longClickListener;
     }
 
     @Override
@@ -28,10 +28,8 @@ public class LogRecyclerViewAdapter extends RecyclerView.Adapter<LogRecyclerView
     public void onBindViewHolder(final RecyclerViewHolder holder, int position) {
         FoodLog log = logList.get(position);
         holder.foodView.setText(log.getmFoodName());
-        holder.calView.setText(log.getCalories());
+        holder.calView.setText("Calories: " + valueOf(log.getCalories()));
         holder.dateView.setText(log.getDate());
-        holder.itemView.setTag(log);
-        holder.itemView.setOnLongClickListener(longClickListener);
     }
 
     @Override
