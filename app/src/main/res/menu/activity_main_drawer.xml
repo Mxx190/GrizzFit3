@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home" />
         <item
             android:id="@+id/nav_bmi"
             android:title="BMI Calc" />
@@ -18,7 +22,7 @@
             android:title="Step Counter" />
       <item
             android:id="@+id/nav_f5"
-            android:title="Current Goals" />
+            android:title="Send Feedback" />
         <item
             android:id="@+id/nav_log"
             android:title="Enter Log" />
@@ -28,6 +32,9 @@
         <item
             android:id="@+id/nav_food"
             android:title="Create Food" />
+        <item
+            android:id="@+id/nav_tips"
+            android:title="Diet Tips" />
     </group>
 
 
