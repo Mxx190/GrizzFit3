@@ -1,6 +1,8 @@
 package com.example.maximus.grizzfit;
 
 
+import android.app.IntentService;
+import android.arch.persistence.room.Room;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,7 +13,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +28,6 @@ import java.util.Set;
 public class FragmentLog extends Fragment {
 
     View currentView;
-
 
     public FragmentLog() {
         // Required empty public constructor
@@ -36,51 +41,66 @@ public class FragmentLog extends Fragment {
         // Inflate the layout for this fragment
         currentView = inflater.inflate(R.layout.fragment_fragment_log, container, false);
 
-
-        final SharedPreferences logs = this.getActivity().getSharedPreferences("logs", 0);
-        final SharedPreferences.Editor edit = logs.edit();
-        final Set<String> set = new HashSet<String>();
+        final LogDatabase db = LogDatabase.getLogDatabase(this.getActivity().getApplicationContext());
 
         Button btnLog = currentView.findViewById(R.id.btnLog);
         final EditText fieldFood = currentView.findViewById(R.id.fieldFood);
         final EditText fieldCal = currentView.findViewById(R.id.fieldCal);
-        //final EditText fieldDate = currentView.findViewById(R.id.fieldDate);
+
         Button btnDel = currentView.findViewById(R.id.btnDel);
 
 
-        //Logs the log
+        //Checks the field. Then inserts a log into database if valid
         btnLog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String food = fieldFood.getText().toString();
-                String calories = fieldCal.getText().toString();
-                String date = Calendar.getInstance().getTime().toString();
 
-                //set.add(food + "/" + calories + "/" + date + "-");
+                DateFormat dFormat = new SimpleDateFormat("MM/dd/yyyy");
 
-                edit.putString("logs", food + "/" + calories + "/" + date + "-");
-                //edit.putStringSet("logs", set);
-                edit.commit();
+                if(fieldFood.getText().toString().equals("") ){
+                    Toast.makeText(getActivity().getApplicationContext(), "Please enter a food", Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getActivity().getApplicationContext(), "Logged", Toast.LENGTH_SHORT).show();
+                }
+                else if((fieldCal.getText().toString().equals(""))){
+                    Toast.makeText(getActivity().getApplicationContext(), "Please enter calories", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    String food = fieldFood.getText().toString();
+                    Integer cal = Integer.parseInt(fieldCal.getText().toString());
+                    String date = dFormat.format(new Date());
+                    createLog(db, food, cal, date);
+                    Toast.makeText(getActivity().getApplicationContext(), "Logged", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-
-
-        //Deletes the log
-
+        //Deletes everything in the datbase
         btnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                edit.clear();
-                edit.commit();
 
-                Toast.makeText(getActivity().getApplicationContext(), "Deleted", Toast.LENGTH_SHORT).show();
+                db.logDao().deleteItAll();
+
+                Toast.makeText(getActivity().getApplicationContext(), "Deleted all logs", Toast.LENGTH_SHORT).show();
             }
         });
 
         return currentView;
+    }
+
+    //Sends log to database
+    private static FoodLog addLog(final LogDatabase db, FoodLog log) {
+        db.logDao().insertAll(log);
+        return log;
+    }
+
+    //assembles the log
+    private static void createLog(LogDatabase db, String food, int cal, String date) {
+        FoodLog log = new FoodLog();
+        log.setmFoodName(food);
+        log.setCalories(cal);
+        log.setDate(date);
+        addLog(db, log);
     }
 
 
