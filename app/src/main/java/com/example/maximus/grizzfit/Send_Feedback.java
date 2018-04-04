@@ -23,10 +23,6 @@ public class Send_Feedback extends Fragment {
     private EditText message;
     private Button sendEmail;
 
-
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
