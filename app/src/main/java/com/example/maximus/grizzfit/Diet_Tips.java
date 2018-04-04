@@ -41,7 +41,7 @@ public class Diet_Tips extends Fragment
         return currentView;
     }
 
-    public String getTip()
+    public static String getTip()
     {
         Random rand = new Random();
 

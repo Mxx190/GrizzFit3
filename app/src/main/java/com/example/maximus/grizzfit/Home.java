@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 
 /**
@@ -13,6 +14,7 @@ import android.view.ViewGroup;
  */
 public class Home extends Fragment {
 
+    View currentView;
 
     public Home() {
         // Required empty public constructor
@@ -23,7 +25,13 @@ public class Home extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        currentView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        final TextView tipLab = currentView.findViewById(R.id.tipLabel);
+
+        tipLab.setText(Diet_Tips.getTip());
+        return currentView;
+        //return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
 }
