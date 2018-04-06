@@ -5,6 +5,7 @@ import android.arch.lifecycle.Observer;
 import android.arch.persistence.room.Room;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,20 @@ public class Fragment_ViewLog extends Fragment {
         currentView = inflater.inflate(R.layout.fragment_fragment__view_log, container, false);
         final LogDatabase db = LogDatabase.getLogDatabase(this.getActivity().getApplicationContext());
         List<FoodLog> list = db.logDao().getAllNotLive();
+        FloatingActionButton fab = currentView.findViewById(R.id.fabAddLog);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentLog fragment = new FragmentLog();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fram, fragment, "FragmentLog");
+                fragmentTransaction.commit();
+
+                //Toast.makeText(getActivity().getApplicationContext(),"Yeah", Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
         // Inflate the layout for this fragment
 
