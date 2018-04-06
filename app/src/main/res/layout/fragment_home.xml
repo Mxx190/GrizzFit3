@@ -76,6 +76,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10"
             tools:text="tip goes here" />
+
     </android.support.constraint.ConstraintLayout>
 
 </FrameLayout>

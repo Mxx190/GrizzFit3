@@ -24,15 +24,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -132,14 +123,7 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.replace(R.id.fram, fragment, "Send Feedback");
             fragmentTransaction.commit();
 
-        }  else if (id == R.id.nav_log) {
-            setTitle("Enter Log");
-            FragmentLog fragment = new FragmentLog();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "FragmentLog");
-            fragmentTransaction.commit();
         }
-
         else if (id == R.id.nav_view) {
             setTitle("View Log");
             Fragment_ViewLog fragment = new Fragment_ViewLog();
@@ -164,9 +148,6 @@ public class MainActivity extends AppCompatActivity
             fragmentTransaction.commit();
         }
 
-
-        LogDatabase db = Room.databaseBuilder(getApplicationContext(),
-                LogDatabase.class, "log-data").build();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

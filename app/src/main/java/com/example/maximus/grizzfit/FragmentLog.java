@@ -70,6 +70,11 @@ public class FragmentLog extends Fragment {
                     String date = dFormat.format(new Date());
                     createLog(db, food, cal, date);
                     Toast.makeText(getActivity().getApplicationContext(), "Logged", Toast.LENGTH_SHORT).show();
+
+                    Fragment_ViewLog fragment = new Fragment_ViewLog();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                    fragmentTransaction.replace(R.id.fram, fragment, "Fragment_ViewLog");
+                    fragmentTransaction.commit();
                 }
             }
         });
@@ -82,6 +87,11 @@ public class FragmentLog extends Fragment {
                 db.logDao().deleteItAll();
 
                 Toast.makeText(getActivity().getApplicationContext(), "Deleted all logs", Toast.LENGTH_SHORT).show();
+
+                Fragment_ViewLog fragment = new Fragment_ViewLog();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fram, fragment, "Fragment_ViewLog");
+                fragmentTransaction.commit();
             }
         });
 
