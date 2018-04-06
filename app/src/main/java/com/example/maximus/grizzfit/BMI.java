@@ -27,7 +27,7 @@ public class BMI extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        currentView = inflater.inflate(R.layout.diet_tips_fragment, container, false);
+        currentView = inflater.inflate(R.layout.bmi_fragment1, container, false);
 
         //Aligning xml elements with the java elements
         Button btnCalculate =  currentView.findViewById(R.id.btnCalculateBMI);

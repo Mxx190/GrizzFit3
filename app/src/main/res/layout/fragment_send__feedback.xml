@@ -15,9 +15,9 @@
         android:layout_alignStart="@+id/subjectEditTxt"
         android:layout_marginTop="40dp"
         android:ems="10"
+        android:hint="Emailid"
         android:inputType="textPersonName"
-        android:text="EmailID"
-        android:hint="Emailid"/>
+        android:text="mdawson@oakland.edu" />
 
     <EditText
         android:id="@+id/subjectEditTxt"
