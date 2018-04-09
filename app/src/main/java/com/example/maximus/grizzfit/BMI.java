@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.app.Activity;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,20 +86,18 @@ public class BMI extends Fragment {
                 float height = 0;
                 float bmi = 0;
 
-                if(ft == 12345 || in == 12345)
-                {
-                    Toast.makeText(getActivity().getApplicationContext(), "Please enter in a proper height", Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    ft = ft * 12;
-                    height = ft + in;
-                }
+                ft = ft * 12;
+                height = ft + in;
+
 
                 //Calculates BMI after checking to make sure the information is valid.
 
                 if ((fieldWeight.getText().toString().equals("")  || (fieldWeight.getText().toString().equals("0")))) {
                     Toast.makeText(getActivity().getApplicationContext(), "Please enter in a proper Weight", Toast.LENGTH_SHORT).show();
+                }
+                else if(height == 0)
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), "Please enter in a proper height", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     weight = Integer.parseInt(fieldWeight.getText().toString());

@@ -29,9 +29,6 @@
         <item
             android:id="@+id/nav_food"
             android:title="Create Food" />
-        <item
-            android:id="@+id/nav_tips"
-            android:title="Diet Tips" />
     </group>
 
 
