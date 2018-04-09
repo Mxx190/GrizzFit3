@@ -28,7 +28,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"/>
 
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_below="@+id/labelWeight"
             android:layout_marginTop="48dp"
             android:labelFor="@+id/fieldHeight"
-            android:text="Height:"
+            android:text="Height (in):"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -63,14 +63,33 @@
             tools:labelFor="@+id/fieldHeight" />
 
 
+        <EditText
+            android:id="@+id/fieldHeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/labelHeight"
+            android:layout_alignBottom="@+id/labelHeight"
+            android:layout_alignLeft="@+id/fieldWeight"
+            android:layout_alignStart="@+id/fieldWeight"
+            android:ems="10"
+            android:inputType="number"
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fieldWeight"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <Button
             android:id="@+id/btnCalculateBMI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/labelWeight"
-            android:layout_alignStart="@+id/labelWeight"
-            android:layout_below="@+id/labelHeight"
-            android:layout_marginTop="45dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/fieldHeight"
+            android:layout_marginLeft="27dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginTop="12dp"
             android:text="Calculate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -81,12 +100,12 @@
             android:id="@+id/labelBMI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/labelHeight"
-            android:layout_alignRight="@+id/labelHeight"
-            android:layout_below="@+id/ftSpinner"
-            android:layout_marginEnd="17dp"
-            android:layout_marginRight="17dp"
-            android:layout_marginTop="20dp"
+            android:layout_alignLeft="@+id/btnCalculateBMI"
+            android:layout_alignStart="@+id/btnCalculateBMI"
+            android:layout_below="@+id/fieldHeight"
+            android:layout_marginLeft="14dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="85dp"
             android:text="BMI:"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -105,44 +124,6 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Spinner
-            android:id="@+id/ftSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/fieldWeight"
-            android:layout_alignStart="@+id/fieldWeight"
-            android:layout_alignTop="@+id/labelHeight" />
-
-        <Spinner
-            android:id="@+id/inSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignEnd="@+id/fieldWeight"
-            android:layout_alignRight="@+id/fieldWeight"
-            android:layout_alignTop="@+id/ftSpinner" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/inSpinner"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_toEndOf="@+id/inSpinner"
-            android:layout_toRightOf="@+id/inSpinner"
-            android:text="In" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/inSpinner"
-            android:layout_marginLeft="15dp"
-            android:layout_marginStart="15dp"
-            android:layout_toEndOf="@+id/ftSpinner"
-            android:layout_toRightOf="@+id/ftSpinner"
-            android:text="ft" />
 
 
     </RelativeLayout>

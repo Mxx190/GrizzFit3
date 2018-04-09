@@ -2,15 +2,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context="com.example.maximus.grizzfit.Enter_Body_Info">
 
 
     <RelativeLayout
+        android:background="@color/backgroundColor"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/labelDirections"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,6 +27,7 @@
             android:textSize="18sp" />
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/labelGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -37,6 +41,7 @@
             android:textSize="18sp" />
 
         <EditText
+            android:textColor="@color/textColor"
             android:id="@+id/fieldGenderInput"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,6 +53,7 @@
             android:inputType="textPersonName" />
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/labelWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -59,6 +65,7 @@
             android:textSize="18sp" />
 
         <EditText
+            android:textColor="@color/textColor"
             android:id="@+id/fieldWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,6 +77,7 @@
             android:inputType="textPersonName" />
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/labelHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -81,6 +89,7 @@
             android:textSize="18sp" />
 
         <EditText
+            android:textColor="@color/textColor"
             android:id="@+id/fieldHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -99,11 +108,14 @@
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/labelHeight"
             android:layout_alignStart="@+id/labelHeight"
-            android:layout_centerVertical="true"
+            android:layout_below="@+id/fieldHeight"
+            android:layout_marginTop="22dp"
             android:text="Age:"
+            android:textColor="@color/textColor"
             android:textSize="18sp" />
 
         <EditText
+            android:textColor="@color/textColor"
             android:id="@+id/fieldAge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

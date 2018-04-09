@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.maximus.grizzfit.Send_Feedback">
@@ -7,6 +8,7 @@
     <!-- TODO: Update blank fragment layout -->
 
     <EditText
+        android:textColor="@color/textColor"
         android:id="@+id/emailIDEditTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,6 +22,7 @@
         android:text="mdawson@oakland.edu" />
 
     <EditText
+        android:textColor="@color/textColor"
         android:id="@+id/subjectEditTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,6 +35,7 @@
         android:text="Subject" />
 
     <EditText
+        android:textColor="@color/textColor"
         android:id="@+id/messageEditTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
