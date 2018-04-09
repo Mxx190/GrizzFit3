@@ -6,10 +6,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.app.Activity;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -18,6 +24,8 @@ import android.widget.Toast;
 public class BMI extends Fragment {
 
     View currentView;
+    Integer ft = 12345;
+    Integer in = 12345;
 
     public BMI() {
         // Required empty public constructor
@@ -30,10 +38,45 @@ public class BMI extends Fragment {
         currentView = inflater.inflate(R.layout.bmi_fragment1, container, false);
 
         //Aligning xml elements with the java elements
-        Button btnCalculate =  currentView.findViewById(R.id.btnCalculateBMI);
+        final Button btnCalculate =  currentView.findViewById(R.id.btnCalculateBMI);
         final EditText fieldWeight = currentView.findViewById(R.id.fieldWeight);
-        final EditText fieldHeight = currentView.findViewById(R.id.fieldHeight);
+        final Spinner ftSpin = currentView.findViewById(R.id.ftSpinner);
+        final Spinner inSpin = currentView.findViewById(R.id.inSpinner);
         final TextView labelOutput = currentView.findViewById(R.id.labelBMIOutput);
+
+        List<Integer> ftChoice = new ArrayList<Integer>();
+        ftChoice.add(0);
+        ftChoice.add(1);
+        ftChoice.add(2);
+        ftChoice.add(3);
+        ftChoice.add(4);
+        ftChoice.add(5);
+        ftChoice.add(6);
+        ftChoice.add(7);
+        ArrayAdapter<Integer> ftspinnerArrayAdapter = new ArrayAdapter<Integer> (getContext(), android.R.layout.simple_spinner_item, ftChoice);
+        ftspinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ftSpin.setAdapter(ftspinnerArrayAdapter);
+
+        ftSpin.setOnItemSelectedListener(new ftSpinnerActivity());
+
+        List<Integer> inChoice = new ArrayList<Integer>();
+        inChoice.add(0);
+        inChoice.add(1);
+        inChoice.add(2);
+        inChoice.add(3);
+        inChoice.add(4);
+        inChoice.add(5);
+        inChoice.add(6);
+        inChoice.add(7);
+        inChoice.add(8);
+        inChoice.add(9);
+        inChoice.add(10);
+        inChoice.add(11);
+        ArrayAdapter<Integer> inspinnerArrayAdapter = new ArrayAdapter<Integer> (getContext(), android.R.layout.simple_spinner_item, inChoice);
+        inspinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        inSpin.setAdapter(inspinnerArrayAdapter);
+
+        inSpin.setOnItemSelectedListener(new inSpinnerActivity());
 
         //Calculating the BMI
         btnCalculate.setOnClickListener(new View.OnClickListener() {
@@ -43,19 +86,27 @@ public class BMI extends Fragment {
                 float height = 0;
                 float bmi = 0;
 
+                if(ft == 12345 || in == 12345)
+                {
+                    Toast.makeText(getActivity().getApplicationContext(), "Please enter in a proper height", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    ft = ft * 12;
+                    height = ft + in;
+                }
+
                 //Calculates BMI after checking to make sure the information is valid.
 
                 if ((fieldWeight.getText().toString().equals("")  || (fieldWeight.getText().toString().equals("0")))) {
                     Toast.makeText(getActivity().getApplicationContext(), "Please enter in a proper Weight", Toast.LENGTH_SHORT).show();
                 }
-                else if ((fieldHeight.getText().toString().equals("")  || (fieldHeight.getText().toString().equals("0")))) {
-                    Toast.makeText(getActivity().getApplicationContext(),"Please enter in a proper Height", Toast.LENGTH_SHORT).show();
-                }
                 else {
                     weight = Integer.parseInt(fieldWeight.getText().toString());
-                    height = Integer.parseInt(fieldHeight.getText().toString());
+                   // height = Integer.parseInt(fieldHeight.getText().toString());
                     bmi = (703 * (weight / (height * height)));
                 }
+
                 labelOutput.setText(String.valueOf(bmi));
 
             }
@@ -66,6 +117,35 @@ public class BMI extends Fragment {
 
 
 
+    }
+
+    public class ftSpinnerActivity implements AdapterView.OnItemSelectedListener {
+
+        public void onItemSelected(AdapterView<?> parent, View view,
+                                   int pos, long id) {
+            // An item was selected. You can retrieve the selected item using
+            String num = parent.getItemAtPosition(pos).toString();
+            ft = Integer.parseInt(num);
+        }
+
+        public void onNothingSelected(AdapterView<?> parent) {
+            // Another interface callback
+        }
+    }
+
+    public class inSpinnerActivity implements AdapterView.OnItemSelectedListener {
+
+        public void onItemSelected(AdapterView<?> parent, View view,
+                                   int pos, long id) {
+            // An item was selected. You can retrieve the selected item using
+            String num = parent.getItemAtPosition(pos).toString();
+            in = Integer.parseInt(num);
+
+        }
+
+        public void onNothingSelected(AdapterView<?> parent) {
+            // Another interface callback
+        }
     }
 
 }
