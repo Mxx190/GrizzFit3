@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
     tools:context="com.example.maximus.grizzfit.Home">
 
     <!-- TODO: Update blank fragment layout -->
@@ -28,6 +29,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,6 +44,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/textView10"
             android:layout_width="135dp"
             android:layout_height="37dp"
@@ -58,6 +61,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/tipLabel"
             android:layout_width="0dp"
             android:layout_height="0dp"

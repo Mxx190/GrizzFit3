@@ -1,5 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/backgroundColor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.maximus.grizzfit.Set_Goal_Controller">
@@ -10,6 +11,7 @@
 
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/labelDirections"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,6 +25,7 @@
             android:textSize="18sp" />
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/labelGoalType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,6 +64,7 @@
             android:textOn="Calorie Burned" />
 
         <EditText
+            android:textColor="@color/textColor"
             android:id="@+id/editTextGoal1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,6 +78,7 @@
             android:inputType="textPersonName" />
 
         <EditText
+            android:textColor="@color/textColor"
             android:id="@+id/editTextGoal2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,6 +89,7 @@
             android:inputType="textPersonName" />
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/timerTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,6 +100,7 @@
             android:textSize="24sp" />
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/GoalTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
