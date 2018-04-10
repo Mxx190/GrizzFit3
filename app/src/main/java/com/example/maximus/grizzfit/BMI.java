@@ -45,8 +45,6 @@ public class BMI extends Fragment {
         final TextView labelOutput = currentView.findViewById(R.id.labelBMIOutput);
 
         List<Integer> ftChoice = new ArrayList<Integer>();
-        ftChoice.add(0);
-        ftChoice.add(1);
         ftChoice.add(2);
         ftChoice.add(3);
         ftChoice.add(4);
@@ -94,10 +92,6 @@ public class BMI extends Fragment {
 
                 if ((fieldWeight.getText().toString().equals("")  || (fieldWeight.getText().toString().equals("0")))) {
                     Toast.makeText(getActivity().getApplicationContext(), "Please enter in a proper Weight", Toast.LENGTH_SHORT).show();
-                }
-                else if(height == 0)
-                {
-                    Toast.makeText(getActivity().getApplicationContext(), "Please enter in a proper height", Toast.LENGTH_SHORT).show();
                 }
                 else {
                     weight = Integer.parseInt(fieldWeight.getText().toString());
