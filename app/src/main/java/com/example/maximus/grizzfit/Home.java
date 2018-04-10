@@ -16,11 +16,6 @@ public class Home extends Fragment {
 
     View currentView;
 
-    public Home() {
-        // Required empty public constructor
-    }
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

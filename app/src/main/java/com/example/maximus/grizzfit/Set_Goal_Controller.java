@@ -2,8 +2,8 @@ package com.example.maximus.grizzfit;
 
 
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,30 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-import java.util.Locale;
-
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class Set_Goal_Controller extends Fragment {
 
     View currentView;
     private int numberOfSteps;
-    private long numberOfDays;
+    private int numberOfDays;
     private int numberOfCalories;
-
-    private long START_TIME_IN_MILLIS;
-
-    private Button submitStart;
-
-    private CountDownTimer goalCountDownTimer;
-
-    private boolean TimerRunning = false;
-
-    private long TimeLeftInMillis;
-
-    private TextView goalTimer;
+    public TextView goalTimer;
     private ToggleButton exerciseTgbtn;
     private ToggleButton weightLossTgbtn;
     private EditText goaledittxt1;
@@ -46,6 +29,9 @@ public class Set_Goal_Controller extends Fragment {
     private TextView directions;
     private TextView goalType;
     private ToggleButton submitToggle;
+    private String Test1 = "";
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,15 +50,11 @@ public class Set_Goal_Controller extends Fragment {
 
         submitToggle = currentView.findViewById(R.id.submitToggleBtn);
 
-
-
         goaledittxt1.setVisibility(View.INVISIBLE);
         goaledittxt2.setVisibility(View.INVISIBLE);
         goalTitle.setVisibility(View.INVISIBLE);
         goalTimer.setVisibility(View.INVISIBLE);
         submitToggle.setVisibility(View.INVISIBLE);
-
-
 
         exerciseTgbtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -123,6 +105,8 @@ public class Set_Goal_Controller extends Fragment {
                     goaledittxt2.setText("Number of Days");
                     submitToggle.setVisibility(View.VISIBLE);
 
+
+
                 }
 
                 else {
@@ -143,10 +127,65 @@ public class Set_Goal_Controller extends Fragment {
 
 
         submitToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            Count_Down_Timer cTimer = new Count_Down_Timer(goalTimer);
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
 
                 if (b){
+
+                    if (goaledittxt1.getText().toString().isEmpty()){
+
+                        goaledittxt1.setError(Html.fromHtml("<font color='#ffffff'>Field cannot be empty</font>"));
+
+                        goaledittxt1.requestFocus();
+
+                        submitToggle.setChecked(false);
+
+                        return;
+
+                    }
+
+                    Test1 = goaledittxt1.getText().toString();
+
+                    if (!Test1.matches("^[1-9]\\d*$")){
+
+                        goaledittxt1.setError(Html.fromHtml("<font color='#ffffff'>Value must be number</font>"));
+
+                        goaledittxt1.requestFocus();
+
+                        submitToggle.setChecked(false);
+
+                        Test1 = "";
+
+                        return;
+
+                    }
+
+                    if (goaledittxt2.getText().toString().isEmpty()){
+
+                        goaledittxt2.setError(Html.fromHtml("<font color='#ffffff'>Field cannot be empty</font>"));
+
+                        goaledittxt2.requestFocus();
+
+                        submitToggle.setChecked(false);
+
+                        return;
+
+                    }
+
+                    Test1 = goaledittxt2.getText().toString();
+
+                    if (!Test1.matches("^[1-9]\\d*$")){
+
+                        goaledittxt2.setError(Html.fromHtml("<font color='#ffffff'>Value must be number</font>"));
+
+                        goaledittxt2.requestFocus();
+
+                        submitToggle.setChecked(false);
+
+                        return;
+
+                    }
 
                     if (exerciseTgbtn.isChecked()){
 
@@ -163,7 +202,10 @@ public class Set_Goal_Controller extends Fragment {
 
                     }
 
-                    updateNumberOfDays();
+
+                    numberOfDays = Integer.parseInt(goaledittxt2.getText().toString());
+
+                    cTimer.updateNumberOfDays(numberOfDays);
 
                     exerciseTgbtn.setVisibility(View.INVISIBLE);
                     weightLossTgbtn.setVisibility(View.INVISIBLE);
@@ -172,13 +214,14 @@ public class Set_Goal_Controller extends Fragment {
                     goalType.setVisibility(View.INVISIBLE);
                     directions.setVisibility(View.INVISIBLE);
 
-                    startTimer();
+                    cTimer.startTimer();
 
                     goalTitle.setVisibility(View.VISIBLE);
                     goalTimer.setVisibility(View.VISIBLE);
 
 
                 } else {
+
 
                     exerciseTgbtn.setVisibility(View.VISIBLE);
                     weightLossTgbtn.setVisibility(View.VISIBLE);
@@ -189,19 +232,8 @@ public class Set_Goal_Controller extends Fragment {
 
                     goalTitle.setVisibility(View.INVISIBLE);
                     goalTimer.setVisibility(View.INVISIBLE);
-                    pauseTimer();
-                    resetTimer();
-
-                    //TimerRunning = false;
-
-                    //MainActivity remove = new MainActivity();
-
-                    //remove.removeGoalAdded();
-
-
-
-                    System.out.println("Time left in millis = " + TimeLeftInMillis);
-                    System.out.println("Starttime left in millis = " + START_TIME_IN_MILLIS);
+                    cTimer.pauseTimer();
+                    cTimer.resetTimer();
 
 
                     exerciseTgbtn.setChecked(false);
@@ -216,64 +248,13 @@ public class Set_Goal_Controller extends Fragment {
 
 
 
+
+
         return currentView;
     }
 
-    public void updateNumberOfDays(){
-
-        numberOfDays = Integer.parseInt(goaledittxt2.getText().toString());
-
-        START_TIME_IN_MILLIS = numberOfDays * 86400000;
-
-        TimeLeftInMillis = START_TIME_IN_MILLIS;
-
-    }
-
-    public void startTimer(){
-        goalCountDownTimer = new CountDownTimer(TimeLeftInMillis, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                TimeLeftInMillis = millisUntilFinished;
-                updateCountDownText();
-
-            }
-
-            @Override
-            public void onFinish() {
-                TimerRunning = false;
-
-            }
-        }.start();
-        TimerRunning = true;
 
 
-    }
 
-    public void pauseTimer(){
-        goalCountDownTimer.cancel();
-        TimerRunning = false;
-
-
-    }
-
-    public void resetTimer(){
-        TimeLeftInMillis = START_TIME_IN_MILLIS;
-
-        updateCountDownText();
-
-
-    }
-
-    public void updateCountDownText(){
-        int days = (int) (TimeLeftInMillis / (1000*60*60*24));
-        int hours   = (int) ((TimeLeftInMillis / (1000*60*60)) % 24);
-        int minutes = (int) ((TimeLeftInMillis / (1000*60)) % 60);
-        int seconds = (int) (TimeLeftInMillis / 1000) % 60 ;
-
-        String timeLeftFormatted = String .format(Locale.getDefault(),"%02d:%02d:%02d:%02d", days, hours, minutes, seconds);
-
-        goalTimer.setText(timeLeftFormatted);
-        System.out.println(timeLeftFormatted);
-    }
 
 }

@@ -1,10 +1,8 @@
 package com.example.maximus.grizzfit;
 
-import android.arch.persistence.room.Room;
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,10 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +37,6 @@ public class MainActivity extends AppCompatActivity
         android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fram, fragment, "Home");
         fragmentTransaction.commit();
-
-
 
     }
 
@@ -81,62 +78,65 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
+        FragmentManager fragmentManager = getFragmentManager();
+
         if (id == R.id.nav_home) {
             setTitle("Home");
-            Home fragment = new Home();
+            Home HomeFragment = new Home();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Home");
+            fragmentTransaction.replace(R.id.fram, HomeFragment, "Home");
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_bmi) {
             setTitle("BMI Calculator");
-            BMI fragment = new BMI();
+            BMI BMIfragment = new BMI();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "BMI");
+            fragmentTransaction.replace(R.id.fram, BMIfragment, "BMI");
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_f2) {
             setTitle("Body Info");
-            Enter_Body_Info fragment = new Enter_Body_Info();
+            Enter_Body_Info Enter_Body_Info_fragment = new Enter_Body_Info();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Enter_Body_Info");
+            fragmentTransaction.replace(R.id.fram, Enter_Body_Info_fragment, "Enter_Body_Info");
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_f3) {
             setTitle("Set Goal");
-            Set_Goal_Controller fragment = new Set_Goal_Controller();
+            Set_Goal_Controller SetGoalFragment = new Set_Goal_Controller();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Set_Goal_Controller");
+            fragmentTransaction.replace(R.id.fram, SetGoalFragment, "Set_Goal_Controller");
             fragmentTransaction.commit();
+
 
         } else if (id == R.id.nav_f4) {
             setTitle("Step Counter");
-            Steps_Counter fragment = new Steps_Counter();
+            Steps_Counter Step_Counter_fragment = new Steps_Counter();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Step Counter");
+            fragmentTransaction.replace(R.id.fram, Step_Counter_fragment, "Step Counter");
             fragmentTransaction.commit();
 
         } else if (id == R.id.nav_f5) {
             setTitle("Send Feedback");
-            Send_Feedback fragment = new Send_Feedback();
+            Send_Feedback sendFeedbackFragment = new Send_Feedback();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Send Feedback");
+            fragmentTransaction.replace(R.id.fram, sendFeedbackFragment, "Send Feedback");
             fragmentTransaction.commit();
 
         }
         else if (id == R.id.nav_view) {
             setTitle("View Log");
-            Fragment_ViewLog fragment = new Fragment_ViewLog();
+            Fragment_ViewLog ViewLogFragment = new Fragment_ViewLog();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "Fragment_ViewLog");
+            fragmentTransaction.replace(R.id.fram, ViewLogFragment, "Fragment_ViewLog");
             fragmentTransaction.commit();
         }
 
         else if (id == R.id.nav_food) {
             setTitle("Create Food");
-            AddFoodItem fragment = new AddFoodItem();
+            AddFoodItem CreateFoodfragment = new AddFoodItem();
             android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, fragment, "AddFoodItem");
+            fragmentTransaction.replace(R.id.fram, CreateFoodfragment, "AddFoodItem");
             fragmentTransaction.commit();
         }
 
@@ -145,4 +145,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }
