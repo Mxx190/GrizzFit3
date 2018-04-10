@@ -84,8 +84,7 @@ public class BMI extends Fragment {
                 float height = 0;
                 float bmi = 0;
 
-                ft = ft * 12;
-                height = ft + in;
+                height = calcHeight(ft, in);
 
 
                 //Calculates BMI after checking to make sure the information is valid.
@@ -95,8 +94,7 @@ public class BMI extends Fragment {
                 }
                 else {
                     weight = Integer.parseInt(fieldWeight.getText().toString());
-                   // height = Integer.parseInt(fieldHeight.getText().toString());
-                    bmi = (703 * (weight / (height * height)));
+                    bmi = calcBMI(height, weight);
                 }
 
                 labelOutput.setText(String.valueOf(bmi));
@@ -138,6 +136,18 @@ public class BMI extends Fragment {
         public void onNothingSelected(AdapterView<?> parent) {
             // Another interface callback
         }
+    }
+
+    public static int calcHeight(Integer f, Integer i)
+    {
+        //calculates height
+        f = f * 12;
+        return f + i;
+    }
+
+    public static float calcBMI(float h, float w)
+    {
+            return (703 * (w / (h * h)));
     }
 
 }
