@@ -2,7 +2,7 @@ package com.example.maximus.grizzfit;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +51,7 @@ public class BMI extends Fragment {
         ftChoice.add(5);
         ftChoice.add(6);
         ftChoice.add(7);
-        ArrayAdapter<Integer> ftspinnerArrayAdapter = new ArrayAdapter<Integer> (getContext(), android.R.layout.simple_spinner_item, ftChoice);
+        ArrayAdapter<Integer> ftspinnerArrayAdapter = new ArrayAdapter<Integer> (getActivity(), android.R.layout.simple_spinner_item, ftChoice);
         ftspinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         ftSpin.setAdapter(ftspinnerArrayAdapter);
 
@@ -70,7 +70,7 @@ public class BMI extends Fragment {
         inChoice.add(9);
         inChoice.add(10);
         inChoice.add(11);
-        ArrayAdapter<Integer> inspinnerArrayAdapter = new ArrayAdapter<Integer> (getContext(), android.R.layout.simple_spinner_item, inChoice);
+        ArrayAdapter<Integer> inspinnerArrayAdapter = new ArrayAdapter<Integer> (getActivity(), android.R.layout.simple_spinner_item, inChoice);
         inspinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         inSpin.setAdapter(inspinnerArrayAdapter);
 
