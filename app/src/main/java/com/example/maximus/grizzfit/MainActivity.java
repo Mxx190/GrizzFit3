@@ -1,5 +1,6 @@
 package com.example.maximus.grizzfit;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,7 +15,9 @@ import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-
+    private Fragment SetGoalFragment;
+    private Fragment HomeFragment;
+    private Fragment CurrentFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,11 +35,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        setTitle("Home");
-        Home fragment = new Home();
-        android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.fram, fragment, "Home");
-        fragmentTransaction.commit();
+        FragmentManager fragmentManager = getFragmentManager();
+        SetGoalFragment = new Set_Goal_Controller();
+        HomeFragment = new Home();
+
+        //setTitle("Home");
+        fragmentManager.beginTransaction().add(R.id.fram, new Home()).commit();
 
     }
 
@@ -81,69 +85,218 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fragmentManager = getFragmentManager();
 
         if (id == R.id.nav_home) {
-            setTitle("Home");
-            Home HomeFragment = new Home();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, HomeFragment, "Home");
-            fragmentTransaction.commit();
+
+            ScreenPicker(new Home());
+
+
+//            setTitle("Home");
+//            Home HomeFragment = new Home();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fram, HomeFragment, "Home");
+//            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_bmi) {
-            setTitle("BMI Calculator");
-            BMI BMIfragment = new BMI();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, BMIfragment, "BMI");
-            fragmentTransaction.commit();
+
+
+
+            ScreenPicker(new BMI());
+
+
+//            setTitle("BMI Calculator");
+//            BMI BMIfragment = new BMI();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fram, BMIfragment, "BMI");
+//            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_f2) {
-            setTitle("Body Info");
-            Enter_Body_Info Enter_Body_Info_fragment = new Enter_Body_Info();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, Enter_Body_Info_fragment, "Enter_Body_Info");
-            fragmentTransaction.commit();
+
+            ScreenPicker(new Enter_Body_Info());
+
+
+
+//            setTitle("Body Info");
+//            Enter_Body_Info Enter_Body_Info_fragment = new Enter_Body_Info();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fram, Enter_Body_Info_fragment, "Enter_Body_Info");
+//            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_f3) {
-            setTitle("Set Goal");
-            Set_Goal_Controller SetGoalFragment = new Set_Goal_Controller();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, SetGoalFragment, "Set_Goal_Controller");
-            fragmentTransaction.commit();
+
+
+            if (!SetGoalFragment.isAdded()){
+
+                fragmentManager.beginTransaction().add(R.id.fram, SetGoalFragment)
+                        .hide(SetGoalFragment)
+                        .commit();
+
+                System.out.println("This is being called!!!!!!!");
+
+            }
+
+            if(CurrentFragment != null) {
+                    fragmentManager.beginTransaction()
+                            .show(SetGoalFragment)
+                            .detach(CurrentFragment)
+                            .commit();
+                    CurrentFragment = null;
+                }else{
+                    fragmentManager.beginTransaction()
+                            .show(SetGoalFragment)
+                            .commit();
+                }
+
+
+
+
+
+
+//            Fragment frag = new Set_Goal_Controller();
+//            setTitle("Set Goal");
+//            Set_Goal_Controller SetGoalFragment = new Set_Goal_Controller();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fram, SetGoalFragment, "Set_Goal_Controller");
+//            fragmentTransaction.commit();
 
 
         } else if (id == R.id.nav_f4) {
-            setTitle("Step Counter");
-            Steps_Counter Step_Counter_fragment = new Steps_Counter();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, Step_Counter_fragment, "Step Counter");
-            fragmentTransaction.commit();
+
+            ScreenPicker(new Steps_Counter());
+
+
+//            setTitle("Step Counter");
+//            Steps_Counter Step_Counter_fragment = new Steps_Counter();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fram, Step_Counter_fragment, "Step Counter");
+//            fragmentTransaction.commit();
 
         } else if (id == R.id.nav_f5) {
-            setTitle("Send Feedback");
-            Send_Feedback sendFeedbackFragment = new Send_Feedback();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, sendFeedbackFragment, "Send Feedback");
-            fragmentTransaction.commit();
+
+            ScreenPicker(new Send_Feedback());
+
+
+//            setTitle("Send Feedback");
+//            Send_Feedback sendFeedbackFragment = new Send_Feedback();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fram, sendFeedbackFragment, "Send Feedback");
+//            fragmentTransaction.commit();
 
         }
         else if (id == R.id.nav_view) {
-            setTitle("View Log");
-            Fragment_ViewLog ViewLogFragment = new Fragment_ViewLog();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, ViewLogFragment, "Fragment_ViewLog");
-            fragmentTransaction.commit();
+
+            ScreenPicker(new Fragment_ViewLog());
+
+
+//            setTitle("View Log");
+//            Fragment_ViewLog ViewLogFragment = new Fragment_ViewLog();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fram, ViewLogFragment, "Fragment_ViewLog");
+//            fragmentTransaction.commit();
         }
 
         else if (id == R.id.nav_food) {
-            setTitle("Create Food");
-            AddFoodItem CreateFoodfragment = new AddFoodItem();
-            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.fram, CreateFoodfragment, "AddFoodItem");
-            fragmentTransaction.commit();
+
+            ScreenPicker(new AddFoodItem());
+
+
+//            setTitle("Create Food");
+//            AddFoodItem CreateFoodfragment = new AddFoodItem();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fram, CreateFoodfragment, "AddFoodItem");
+//            fragmentTransaction.commit();
         }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void ScreenPicker(Fragment NewFrag){
+        FragmentManager fragmentManager = getFragmentManager();
+
+        if (!NewFrag.isAdded()){
+
+            if (CurrentFragment == null) {
+                fragmentManager.beginTransaction()
+                        .add(R.id.fram, NewFrag)
+                        .hide(SetGoalFragment)
+                        .commit();
+                CurrentFragment = NewFrag;
+            } else {
+                if (CurrentFragment != NewFrag) {
+                    fragmentManager.beginTransaction()
+                            .detach(CurrentFragment)
+                            .add(R.id.fram, NewFrag)
+                            .hide(SetGoalFragment)
+                            .commit();
+                    CurrentFragment = NewFrag;
+                }
+            }
+
+
+
+        } else {
+
+            System.out.println("Its running here");
+
+            if (CurrentFragment == null) {
+                fragmentManager.beginTransaction()
+                        .show(NewFrag)
+                        .hide(SetGoalFragment)
+                        .commit();
+                CurrentFragment = NewFrag;
+            } else {
+                if (CurrentFragment != NewFrag) {
+                    System.out.println("Its running and here");
+                    fragmentManager.beginTransaction()
+                            .detach(CurrentFragment)
+                            .show(NewFrag)
+                            .hide(SetGoalFragment)
+                            .commit();
+                    CurrentFragment = NewFrag;
+                }
+
+                System.out.println("Its running right here");
+            }
+
+
+
+
+
+
+        }
+
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        System.out.println("Pause");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        System.out.println("resume");
+        // resume tasks
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
 

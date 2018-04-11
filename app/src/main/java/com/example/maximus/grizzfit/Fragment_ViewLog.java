@@ -1,21 +1,15 @@
 package com.example.maximus.grizzfit;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.Observer;
-import android.arch.persistence.room.Room;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +19,8 @@ import java.util.List;
  * A simple {@link Fragment} subclass.
  */
 public class Fragment_ViewLog extends Fragment {
+
+    FragmentManager fragmentManager = getFragmentManager();
 
 
     View currentView;
@@ -44,10 +40,9 @@ public class Fragment_ViewLog extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentLog fragment = new FragmentLog();
-                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fram, fragment, "FragmentLog");
-                fragmentTransaction.commit();
+
+                fragmentManager.beginTransaction().replace(R.id.fram, new FragmentLog()).commit();
+
 
                 //Toast.makeText(getActivity().getApplicationContext(),"Yeah", Toast.LENGTH_SHORT).show();
 

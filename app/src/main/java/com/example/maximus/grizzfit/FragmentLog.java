@@ -1,11 +1,9 @@
 package com.example.maximus.grizzfit;
 
 
-import android.app.IntentService;
-import android.arch.persistence.room.Room;
-import android.content.SharedPreferences;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,11 +13,7 @@ import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 
 /**
@@ -28,6 +22,7 @@ import java.util.Set;
 public class FragmentLog extends Fragment {
 
     View currentView;
+    FragmentManager fragmentManager = getFragmentManager();
 
     public FragmentLog() {
         // Required empty public constructor
@@ -71,10 +66,7 @@ public class FragmentLog extends Fragment {
                     createLog(db, food, cal, date);
                     Toast.makeText(getActivity().getApplicationContext(), "Logged", Toast.LENGTH_SHORT).show();
 
-                    Fragment_ViewLog fragment = new Fragment_ViewLog();
-                    android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.fram, fragment, "Fragment_ViewLog");
-                    fragmentTransaction.commit();
+                    fragmentManager.beginTransaction().replace(R.id.fram, new Fragment_ViewLog()).commit();
                 }
             }
         });
@@ -88,10 +80,7 @@ public class FragmentLog extends Fragment {
 
                 Toast.makeText(getActivity().getApplicationContext(), "Deleted all logs", Toast.LENGTH_SHORT).show();
 
-                Fragment_ViewLog fragment = new Fragment_ViewLog();
-                android.support.v4.app.FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fram, fragment, "Fragment_ViewLog");
-                fragmentTransaction.commit();
+                fragmentManager.beginTransaction().replace(R.id.fram, new Fragment_ViewLog()).commit();
             }
         });
 

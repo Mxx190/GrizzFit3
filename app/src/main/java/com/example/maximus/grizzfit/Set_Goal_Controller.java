@@ -2,12 +2,11 @@ package com.example.maximus.grizzfit;
 
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,14 +16,13 @@ public class Set_Goal_Controller extends Fragment {
 
     View currentView;
     private int numberOfSteps;
-    private int numberOfDays;
+    public int numberOfDays;
     private int numberOfCalories;
     public TextView goalTimer;
     private ToggleButton exerciseTgbtn;
     private ToggleButton weightLossTgbtn;
     private EditText goaledittxt1;
     private EditText goaledittxt2;
-    private Button buttonSubmit;
     private TextView goalTitle;
     private TextView directions;
     private TextView goalType;
