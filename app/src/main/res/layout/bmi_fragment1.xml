@@ -14,6 +14,7 @@
         android:layout_alignParentTop="true">
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/labelWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,6 +33,7 @@
 
 
         <TextView
+            android:textColor="@color/textColor"
             android:id="@+id/labelHeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,6 +58,7 @@
             android:ems="10"
             android:inputType="number"
             android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textColor="@color/textColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -67,10 +70,9 @@
             android:id="@+id/btnCalculateBMI"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/labelHeight"
-            android:layout_alignStart="@+id/labelHeight"
-            android:layout_below="@+id/labelHeight"
-            android:layout_marginTop="42dp"
+            android:layout_below="@+id/ftSpinner"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="31dp"
             android:text="Calculate"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -84,10 +86,9 @@
             android:layout_alignLeft="@+id/btnCalculateBMI"
             android:layout_alignStart="@+id/btnCalculateBMI"
             android:layout_below="@+id/btnCalculateBMI"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="37dp"
             android:text="BMI:"
+            android:textColor="@color/textColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -99,8 +100,9 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/labelBMI"
             android:layout_alignBottom="@+id/labelBMI"
-            android:layout_toEndOf="@+id/labelHeight"
-            android:layout_toRightOf="@+id/labelHeight"
+            android:layout_toEndOf="@+id/labelBMI"
+            android:layout_toRightOf="@+id/labelBMI"
+            android:textColor="@color/textColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -110,42 +112,48 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/labelHeight"
-            android:layout_alignBottom="@+id/labelHeight"
-            android:layout_marginLeft="26dp"
-            android:layout_marginStart="26dp"
-            android:layout_toEndOf="@+id/ftSpinner"
-            android:layout_toRightOf="@+id/ftSpinner"
-            android:text="ft" />
+            android:layout_alignBottom="@+id/ftSpinner"
+            android:layout_toEndOf="@+id/labelBMI"
+            android:layout_toRightOf="@+id/labelBMI"
+            android:text="ft"
+            android:textColor="@color/textColor" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/inSpinner"
-            android:layout_marginLeft="33dp"
-            android:layout_marginStart="33dp"
-            android:layout_toEndOf="@+id/inSpinner"
-            android:layout_toRightOf="@+id/inSpinner"
-            android:text="in" />
+            android:layout_alignBottom="@+id/inSpinner"
+            android:layout_toEndOf="@+id/fieldWeight"
+            android:layout_toRightOf="@+id/fieldWeight"
+            android:text="in"
+            android:textColor="@color/textColor" />
 
         <Spinner
             android:id="@+id/inSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView13"
-            android:layout_marginLeft="48dp"
-            android:layout_marginStart="48dp"
-            android:layout_toEndOf="@+id/textView13"
-            android:layout_toRightOf="@+id/textView13" />
+            android:layout_alignBottom="@+id/textView13"
+            android:layout_alignEnd="@+id/fieldWeight"
+            android:layout_alignRight="@+id/fieldWeight"
+            android:textColor="@color/textColor" />
 
         <Spinner
             android:id="@+id/ftSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textView13"
-            android:layout_toEndOf="@+id/btnCalculateBMI"
-            android:layout_toRightOf="@+id/btnCalculateBMI" />
+            android:layout_alignBottom="@+id/labelHeight"
+            android:layout_alignLeft="@+id/fieldWeight"
+            android:layout_alignStart="@+id/fieldWeight"
+            android:textColor="@color/textColor" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/bmi_table" />
 
 
     </RelativeLayout>

@@ -12,23 +12,23 @@
             android:id="@+id/nav_bmi"
             android:title="BMI Calc" />
         <item
-            android:id="@+id/nav_f2"
-            android:title="Enter Body Info" />
-        <item
-            android:id="@+id/nav_f3"
-            android:title="Set Goal" />
-        <item
             android:id="@+id/nav_f4"
             android:title="Step Counter" />
-      <item
-            android:id="@+id/nav_f5"
-            android:title="Send Feedback" />
+        <item
+            android:id="@+id/nav_f3"
+            android:title="Set Step/Calorie Goal" />
         <item
             android:id="@+id/nav_view"
-            android:title="View Log" />
+            android:title="Food Log" />
         <item
             android:id="@+id/nav_food"
-            android:title="Create Food" />
+            android:title="Add Food Info" />
+        <item
+            android:id="@+id/nav_f2"
+            android:title="Track Body Info" />
+        <item
+            android:id="@+id/nav_f5"
+            android:title="Send Feedback" />
     </group>
 
 
