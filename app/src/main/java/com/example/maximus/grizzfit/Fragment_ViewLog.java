@@ -41,7 +41,7 @@ public class Fragment_ViewLog extends Fragment {
             @Override
             public void onClick(View v) {
 
-                fragmentManager.beginTransaction().replace(R.id.fram, new FragmentLog()).commit();
+                ((MainActivity)getActivity()).ScreenPicker(new FragmentLog());
 
 
                 //Toast.makeText(getActivity().getApplicationContext(),"Yeah", Toast.LENGTH_SHORT).show();

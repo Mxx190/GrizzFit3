@@ -205,6 +205,18 @@ public class MainActivity extends AppCompatActivity
 //            fragmentTransaction.commit();
         }
 
+        else if (id == R.id.nav_food) {
+
+            ScreenPicker(new AddFoodItem());
+
+
+//            setTitle("Create Food");
+//            AddFoodItem CreateFoodfragment = new AddFoodItem();
+//            android.support.v4.app.FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+//            fragmentTransaction.replace(R.id.fram, CreateFoodfragment, "AddFoodItem");
+//            fragmentTransaction.commit();
+        }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

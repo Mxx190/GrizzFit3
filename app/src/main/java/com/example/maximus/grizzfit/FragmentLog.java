@@ -66,7 +66,7 @@ public class FragmentLog extends Fragment {
                     createLog(db, food, cal, date);
                     Toast.makeText(getActivity().getApplicationContext(), "Logged", Toast.LENGTH_SHORT).show();
 
-                    fragmentManager.beginTransaction().replace(R.id.fram, new Fragment_ViewLog()).commit();
+                    ((MainActivity)getActivity()).ScreenPicker(new Fragment_ViewLog());
                 }
             }
         });
@@ -80,7 +80,7 @@ public class FragmentLog extends Fragment {
 
                 Toast.makeText(getActivity().getApplicationContext(), "Deleted all logs", Toast.LENGTH_SHORT).show();
 
-                fragmentManager.beginTransaction().replace(R.id.fram, new Fragment_ViewLog()).commit();
+                ((MainActivity)getActivity()).ScreenPicker(new Fragment_ViewLog());
             }
         });
 
