@@ -237,6 +237,7 @@ public class MainActivity extends AppCompatActivity
 
         } else {
 
+
             System.out.println("Its running here");
 
             if (CurrentFragment == null) {
