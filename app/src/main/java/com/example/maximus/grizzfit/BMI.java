@@ -45,8 +45,6 @@ public class BMI extends Fragment {
         final TextView labelOutput = currentView.findViewById(R.id.labelBMIOutput);
 
         List<Integer> ftChoice = new ArrayList<Integer>();
-        ftChoice.add(0);
-        ftChoice.add(1);
         ftChoice.add(2);
         ftChoice.add(3);
         ftChoice.add(4);
@@ -86,8 +84,7 @@ public class BMI extends Fragment {
                 float height = 0;
                 float bmi = 0;
 
-                ft = ft * 12;
-                height = ft + in;
+                height = calcHeight(ft, in);
 
 
                 //Calculates BMI after checking to make sure the information is valid.
@@ -95,14 +92,9 @@ public class BMI extends Fragment {
                 if ((fieldWeight.getText().toString().equals("")  || (fieldWeight.getText().toString().equals("0")))) {
                     Toast.makeText(getActivity().getApplicationContext(), "Please enter in a proper Weight", Toast.LENGTH_SHORT).show();
                 }
-                else if(height == 0)
-                {
-                    Toast.makeText(getActivity().getApplicationContext(), "Please enter in a proper height", Toast.LENGTH_SHORT).show();
-                }
                 else {
                     weight = Integer.parseInt(fieldWeight.getText().toString());
-                   // height = Integer.parseInt(fieldHeight.getText().toString());
-                    bmi = (703 * (weight / (height * height)));
+                    bmi = calcBMI(height, weight);
                 }
 
                 labelOutput.setText(String.valueOf(bmi));
@@ -144,6 +136,18 @@ public class BMI extends Fragment {
         public void onNothingSelected(AdapterView<?> parent) {
             // Another interface callback
         }
+    }
+
+    public static int calcHeight(Integer f, Integer i)
+    {
+        //calculates height
+        f = f * 12;
+        return f + i;
+    }
+
+    public static float calcBMI(float h, float w)
+    {
+            return (703 * (w / (h * h)));
     }
 
 }
