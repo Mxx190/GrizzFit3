@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "380209853641",
+    "firebase_url": "https://grizzfit-e471f.firebaseio.com",
+    "project_id": "grizzfit-e471f",
+    "storage_bucket": "grizzfit-e471f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:380209853641:android:846b7d1641a9aeac",
+        "android_client_info": {
+          "package_name": "com.example.maximus.grizzfit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "380209853641-overqdssb2p6vpqdfea9vcvjhkk5nnha.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-2E0iWXBE3omWRwj3sE_j8BYWZ6mocCE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
